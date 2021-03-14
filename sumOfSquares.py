@@ -1,4 +1,4 @@
-#sum of squares of integers from zero to n
+#sum of squares of integers from zero to BEFORE n
 
 n= int(input('n= '))
 n = (n if n>=0 else -n)
@@ -17,4 +17,4 @@ for l in listaDeCuadrados:
 #method 3
 suma3 = sum( [k*k for k in range(1,n)] )
 
-print('Suma de cuadrados desde cero hasta ' , n, ' es ', suma1, '\n2do metodo: ', suma2, '\n3er metodo: ', suma3)
+print('Suma de cuadrados desde cero hasta antes de ' , n, ' es ', suma1, '\n2do metodo: ', suma2, '\n3er metodo: ', suma3)
