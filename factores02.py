@@ -5,3 +5,8 @@ factors = [isFactor for isFactor in range(1, n+1) if n % isFactor == 0]
 
 for i in range(len(factors)):
     print(factors[i])
+
+print('\n\n')
+
+for factor in factors:
+    print(factor)
