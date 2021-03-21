@@ -8,30 +8,36 @@ def haveDuplicates(seq):
                  return True
     return False
 
-    
 
 
 if __name__ == '__main__':
+
+    import printeaSeq
+    
     seq = [3, 4, 56, 3.6]
+    printeaSeq.printeaSeq('secuencia', seq)
     if(haveDuplicates(seq)):
-        print('Yes, duplicates on sequence.')
+        print('Yes, duplicates on sequence.\n')
     else:
-        print('No, no repeated numbers.')
+        print('No, no repeated numbers.\n')
 
     seq = [3, 4, 56, 4.0]
+    printeaSeq.printeaSeq('secuencia', seq)
     if(haveDuplicates(seq)):
-        print('Yes, duplicates on sequence.')
+        print('Yes, duplicates on sequence.\n')
     else:
-        print('No, no repeated numbers.')
+        print('No, no repeated numbers.\n')
 
     seq = []
+    printeaSeq.printeaSeq('secuencia', seq)
     if(haveDuplicates(seq)):
-        print('Yes, duplicates on sequence.')
+        print('Yes, duplicates on sequence.\n')
     else:
-        print('No, no repeated numbers.')
+        print('No, no repeated numbers.\n')
 
     seq = [56]
+    printeaSeq.printeaSeq('secuencia', seq)
     if(haveDuplicates(seq)):
-        print('Yes, duplicates on sequence.')
+        print('Yes, duplicates on sequence.\n')
     else:
-        print('No, no repeated numbers.')
+        print('No, no repeated numbers.\n')
