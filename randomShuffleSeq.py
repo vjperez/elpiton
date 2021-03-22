@@ -4,7 +4,6 @@
 # randint(a, b) returns a randomly distributed integer between a and b, including both
 
 import random
-import printeaSeq
 
 def randomSwapOnSeq(seq):
     a = random.randint(0, -1 + len(seq))
@@ -13,13 +12,25 @@ def randomSwapOnSeq(seq):
         seq[a], seq[b] = seq[b], seq[a]
 
 
+
+def randomShuffle(seq, cuantosSwaps):
+    for i in range( cuantosSwaps ):
+        randomSwapOnSeq( seq )
+
+
+
 if __name__ == '__main__':
+    import printeaSeq
     
-    cuantosSwaps = 4
     secuencia = ['uno', 'dos', 'tres', 'cuatro']
     printeaSeq.printeaSeq('secuencia original', secuencia)
     print()
 
-    for i in range( cuantosSwaps ):
-        randomSwapOnSeq(secuencia)
-        printeaSeq.printeaSeq('secuencia after a swap', secuencia)
+    cuantosSwaps = 1
+    randomShuffle(secuencia, cuantosSwaps)
+    printeaSeq.printeaSeq('secuencia after 1 swap', secuencia)
+    print()
+    
+    cuantosSwaps = 100
+    randomShuffle(secuencia, cuantosSwaps)
+    printeaSeq.printeaSeq('secuencia after 101 swaps', secuencia)
