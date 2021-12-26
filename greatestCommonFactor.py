@@ -41,9 +41,9 @@ if __name__ == '__main__':
     factoresT = factores02.getFactors(t)
 
     print('primer numero:', s, sep=' ', end='\n')
-    printeaSeq.printeaSeq('factores :', factoresS )
+    printeaSeq.printeaSeq('factores', factoresS )
     print('segundo numero:', t, sep=' ', end='\n')
-    printeaSeq.printeaSeq('factores :', factoresT )
+    printeaSeq.printeaSeq('factores', factoresT )
     
     print('gcf:', gcf(s, t), sep=' ', end='\n--------------\n\n')
 
@@ -55,9 +55,9 @@ if __name__ == '__main__':
     factoresT = factores02.getFactors(t)
 
     print('primer numero:', s, sep=' ', end='\n')
-    printeaSeq.printeaSeq('factores :', factoresS )
+    printeaSeq.printeaSeq('factores', factoresS )
     print('segundo numero:', t, sep=' ', end='\n')
-    printeaSeq.printeaSeq('factores :', factoresT )
+    printeaSeq.printeaSeq('factores', factoresT )
     
     print('gcf:', gcf(s, t), sep=' ', end='\n---------------\n\n')
 
@@ -69,9 +69,9 @@ if __name__ == '__main__':
     factoresT = factores02.getFactors(t)
 
     print('primer numero:', s, sep=' ', end='\n')
-    printeaSeq.printeaSeq('factores :', factoresS )
+    printeaSeq.printeaSeq('factores', factoresS )
     print('segundo numero:', t, sep=' ', end='\n')
-    printeaSeq.printeaSeq('factores :', factoresT )
+    printeaSeq.printeaSeq('factores', factoresT )
     
     print('gcf:', gcf(s, t), sep=' ', end='\n---------------\n\n')
 
@@ -83,9 +83,9 @@ if __name__ == '__main__':
     factoresT = factores02.getFactors(t)
 
     print('primer numero:', s, sep=' ', end='\n')
-    printeaSeq.printeaSeq('factores :', factoresS )
+    printeaSeq.printeaSeq('factores', factoresS )
     print('segundo numero:', t, sep=' ', end='\n')
-    printeaSeq.printeaSeq('factores :', factoresT )
+    printeaSeq.printeaSeq('factores', factoresT )
     
     print('gcf:', gcf(s, t), sep=' ', end='\n---------------\n\n')
 
@@ -96,8 +96,22 @@ if __name__ == '__main__':
     factoresT = factores02.getFactors(t)
 
     print('primer numero:', s, sep=' ', end='\n')
-    printeaSeq.printeaSeq('factores :', factoresS )
+    printeaSeq.printeaSeq('factores', factoresS )
     print('segundo numero:', t, sep=' ', end='\n')
-    printeaSeq.printeaSeq('factores :', factoresT )
+    printeaSeq.printeaSeq('factores', factoresT )
+    
+    print('gcf:', gcf(s, t), sep=' ', end='\n---------------\n\n')
+
+
+
+    s = 2
+    factoresS = factores02.getFactors(s)
+    t = 2
+    factoresT = factores02.getFactors(t)
+
+    print('primer numero:', s, sep=' ', end='\n')
+    printeaSeq.printeaSeq('factores', factoresS )
+    print('segundo numero:', t, sep=' ', end='\n')
+    printeaSeq.printeaSeq('factores', factoresT )
     
     print('gcf:', gcf(s, t), sep=' ', end='\n---------------\n\n')
