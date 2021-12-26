@@ -1,7 +1,5 @@
 #use factores02 y printeaSeq to compute gcf
 
-#should printes checlk for instance of str and instance of seq ?!?!
-
 import factores02
 
 def gcf(a, b):
