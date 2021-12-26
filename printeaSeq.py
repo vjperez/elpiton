@@ -2,10 +2,13 @@
 # items on the seq will appear to the right of =
 
 def printeaSeq(name, seq):
-    print(name, '= ', sep='', end='') 
-    for item in seq:
-        print(item, ' ', sep='', end='')
-    print('', end='\n')
+    if isinstance(name, str):  #should also check, seq is a collection ?!
+        print(name, '= ', sep='', end='') 
+        for item in seq:
+            print(item, ' ', sep='', end='')
+        print('', end='\n')
+    else:
+        raise Exception('Primer arg no es string...')
 
 
 if __name__ == '__main__':
@@ -18,3 +21,7 @@ if __name__ == '__main__':
 
     a= [2, 'victor']
     printeaSeq('2 y mi nombre', a)
+
+    #aqui 23 no es un str... raising an exception...
+    a= [4, 7]
+    printeaSeq(23, a)
