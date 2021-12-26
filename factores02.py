@@ -1,5 +1,3 @@
-import printeaSeq
-
 #v must be an integer and must be > than 1
 def getFactors(v):
     if isinstance(v, int) and v > 1:
@@ -12,6 +10,8 @@ def getFactors(v):
 
 
 if __name__ == '__main__':
+    import printeaSeq
+
     x = 36
     print('2 ways to print factors of ', x)
 
