@@ -1,9 +1,9 @@
-# name will appear at the left of the =
-# items on the seq will appear to the right of =
+# name will appear at the left of the :
+# items on the seq will appear to the right of :
 
 def printeaSeq(name, seq):
     if isinstance(name, str):  #should also check, seq is a collection ?!
-        print(name, '= ', sep='', end='') 
+        print(name, ': ', sep='', end='') 
         for item in seq:
             print(item, ' ', sep='', end='')
         print('', end='\n')
