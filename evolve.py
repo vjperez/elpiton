@@ -15,17 +15,26 @@ def fullWorld(world):
     return True
 
 
+def stableWorld(worldAndSize, newWorld):
+    size  = worldAndSize[1]
+    world = worldAndSize[0]
+    for x in range(size):
+        for y in range(size):
+            if world[x][y] != newWorld[x][y]:    return False
+    return True
+
+
 def isCellAlive(item):
     return item == '#'
 
 
 def willCellSurvive(worldAndSize, r, c):
-    if howManyNeibhors(worldAndSize, r, c) >= 2: return True
+    if howManyNeibhors(worldAndSize, r, c) >= 1: return True
     else:   return False
 
 
 def shouldCreateCell(worldAndSize, r, c):
-    if howManyNeibhors(worldAndSize, r, c) >= 3: return True
+    if howManyNeibhors(worldAndSize, r, c) >= 1: return True
     else: return False
 
 
@@ -51,7 +60,8 @@ newWorld = copy.deepcopy(world)
 
 
 iteration = 0
-while not emptyWorld( newWorld ) and not fullWorld( newWorld ):
+isStableWorld = False
+while not isStableWorld:
     for r, row in enumerate (world):
         for c, item in enumerate (row):
             if isCellAlive(item):
@@ -66,11 +76,13 @@ while not emptyWorld( newWorld ) and not fullWorld( newWorld ):
                 else:
                     pass
                     # no cell there, and no cell will be created
-    print('Iteration ', iteration, ':\nworld    ', world)
+    print('After iteration ', iteration, ':\nworld    ', world)
     print('new world', newWorld, '\n\n\n\n')
     input()
+
+    isStableWorld = stableWorld(worldAndSize, newWorld)
 
     iteration += 1
     world = copy.deepcopy(newWorld)
     worldAndSize = [newWorld, size]
-print('\n\nEmpty, full or ===stable=== world beginning iteration:', iteration, '. Iteration', iteration - 1, 'killed everyone.')
+print('\n\nStable world beginning iteration:', iteration, '. Iteration', iteration - 1, 'created a stable world.')
