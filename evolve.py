@@ -16,8 +16,8 @@ def fullWorld(world):
 
 
 def stableWorld(world, size, newWorld):
-    print('\nworld    ', world)
-    print('new world', newWorld, '\n')
+    # print('\nworld    ', world)
+    # print('new world', newWorld, '\n\n\n\n')
     for x in range(size):
         for y in range(size):
             if world[x][y] != newWorld[x][y]:    return False
@@ -29,12 +29,12 @@ def isCellAlive(item):
 
 
 def willCellSurvive(world, size, r, c):
-    if howManyNeibhors(world, size, r, c) >= 4: return True
+    if howManyNeibhors(world, size, r, c) >= 3: return True
     else:   return False
 
 
 def shouldCreateCell(world, size, r, c):
-    if howManyNeibhors(world, size, r, c) >= 0: return True
+    if howManyNeibhors(world, size, r, c) >= 2: return True
     else: return False
 
 
@@ -75,10 +75,10 @@ while not isStableWorld:
                     pass
                     # no cell there, and no cell will be created
     print('After iteration ', iteration, ':\nworld    ', world)
-    print('new world', newWorld, '\n\n\n\n')
-    input()
+    print('new world', newWorld, '\n')
 
     isStableWorld = stableWorld(world, size, newWorld)
+    input()
 
     iteration += 1
     world = copy.deepcopy(newWorld)
