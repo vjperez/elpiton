@@ -15,7 +15,9 @@ def fullWorld(world):
     return True
 
 
-def stableWorld(world, size, newWorld):
+def stableWorld(worldAndSize, newWorld):
+    size  = worldAndSize[1]
+    world = worldAndSize[0]
     print('\nworld    ', world)
     print('new world', newWorld, '\n')
     for x in range(size):
@@ -28,17 +30,19 @@ def isCellAlive(item):
     return item == '#'
 
 
-def willCellSurvive(world, size, r, c):
-    if howManyNeibhors(world, size, r, c) >= 4: return True
+def willCellSurvive(worldAndSize, r, c):
+    if howManyNeibhors(worldAndSize, r, c) >= 4: return True
     else:   return False
 
 
-def shouldCreateCell(world, size, r, c):
-    if howManyNeibhors(world, size, r, c) >= 0: return True
+def shouldCreateCell(worldAndSize, r, c):
+    if howManyNeibhors(worldAndSize, r, c) >= 0: return True
     else: return False
 
 
-def howManyNeibhors(world, size, r, c):
+def howManyNeibhors(worldAndSize, r, c):
+    size  = worldAndSize[1]
+    world = worldAndSize[0]
     n = 0 # no neighbors
     # looking for neibohors, spots at the edge connect with opposite edge
     if isCellAlive( world[r][(c+1)%size] ): n += 1
@@ -63,13 +67,13 @@ while not isStableWorld:
     for r, row in enumerate (world):
         for c, item in enumerate (row):
             if isCellAlive(item):
-                if willCellSurvive(world, size, r, c):
+                if willCellSurvive(worldAndSize, r, c):
                     pass
                     # cell is there and will survive
                 else:
                     newWorld[r][c] = ' '
             else: # no cell in this spot, so should i create one ?
-                if shouldCreateCell(world, size, r, c):
+                if shouldCreateCell(worldAndSize, r, c):
                     newWorld[r][c] = '#'
                 else:
                     pass
@@ -78,8 +82,9 @@ while not isStableWorld:
     print('new world', newWorld, '\n\n\n\n')
     input()
 
-    isStableWorld = stableWorld(world, size, newWorld)
+    isStableWorld = stableWorld(worldAndSize, newWorld)
 
     iteration += 1
     world = copy.deepcopy(newWorld)
+    worldAndSize = [newWorld, size]
 print('\n\nStable world beginning iteration:', iteration, '. Iteration', iteration - 1, 'created a stable world.')
