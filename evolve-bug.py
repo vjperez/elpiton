@@ -80,11 +80,13 @@ while not isStableWorld:
                     # no cell there, and no cell will be created
     print('After iteration ', iteration, ':\nworld    ', world)
     print('new world', newWorld, '\n\n\n\n')
-    input()
 
     isStableWorld = stableWorld(worldAndSize, newWorld)
+    input()
+
 
     iteration += 1
     world = copy.deepcopy(newWorld)
-    worldAndSize = [newWorld, size]
+    # bug fixed by using deep copy on the following instruction
+    worldAndSize = copy.deepcopy( [newWorld, size] )
 print('\n\nStable world beginning iteration:', iteration, '. Iteration', iteration - 1, 'created a stable world.')
