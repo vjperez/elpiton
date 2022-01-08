@@ -34,12 +34,14 @@ def isCellAlive(item):
 
 
 def willCellSurvive(world, size, r, c):
-    if howManyNeibhors(world, size, r, c) >= 3: return True
+    # cell survives when it has 2 or 3 neighbors
+    if howManyNeibhors(world, size, r, c) == 2 or howManyNeibhors(world, size, r, c) == 3: return True
     else:   return False
 
 
 def shouldCreateCell(world, size, r, c):
-    if howManyNeibhors(world, size, r, c) >= 2: return True
+    # cell is created when there are 3 neighbors
+    if howManyNeibhors(world, size, r, c) == 3: return True
     else: return False
 
 
@@ -100,3 +102,7 @@ while not stableWorld(world, size, newWorld):
 
 
 print('\n\nIteration:', iteration, 'produced the same world.')
+if fullWorld(newWorld):
+    print('Full world...')
+if emptyWorld(newWorld):
+    print('Empty world...')
