@@ -49,6 +49,12 @@ def howManyNeibhors(world, size, r, c):
     if isCellAlive( world[(r+1)%size][c] ): n += 1
     if isCellAlive( world[r][(c-1+size)%size] ): n += 1
     if isCellAlive( world[(r-1+size)%size][c] ): n += 1
+    # diagonal neighbors
+    if isCellAlive( world[(r+1)%size][(c+1)%size] ): n += 1
+    if isCellAlive( world[(r+1)%size][(c-1+size)%size] ): n += 1
+    if isCellAlive( world[(r-1+size)%size][(c+1)%size] ): n += 1
+    if isCellAlive( world[(r-1+size)%size][(c-1%size)%size] ): n += 1
+    # print('r', r, 'c', c, 'n', n)
     return n
 
 
