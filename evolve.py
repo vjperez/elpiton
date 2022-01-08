@@ -1,4 +1,6 @@
-import getIniSpace, copy
+# conway game of life
+# initial world is created in getConwayInitWorld.py
+import getConwayInitWorld, copy
 
 def printWorld(s):
     for row in s:
@@ -78,7 +80,7 @@ def aNewWorld(world, newWorld, size):
                     # no cell there, and no cell will be created
 
 
-worldAndSize = getIniSpace.getIniSpace()
+worldAndSize = getConwayInitWorld.getConwayInitWorld()
 size  = worldAndSize[1]
 world = worldAndSize[0]
 
