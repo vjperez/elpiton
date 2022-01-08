@@ -1,11 +1,12 @@
 import getIniSpace, copy
 
-def printea(s):
+def printWorld(s):
     for row in s:
         for item in row:
             print(item,  end='')
         print('', end='\n')
     print('\n\n\n')
+
 
 def emptyWorld(world):
     for row in world:
@@ -58,18 +59,7 @@ def howManyNeibhors(world, size, r, c):
     return n
 
 
-
-worldAndSize = getIniSpace.getIniSpace()
-size  = worldAndSize[1]
-world = worldAndSize[0]
-print('Creation')
-printea(world)
-newWorld = copy.deepcopy(world)
-
-
-iteration = 0
-isStableWorld = False
-while not isStableWorld:
+def aNewWorld(world, newWorld, size):
     for r, row in enumerate (world):
         for c, item in enumerate (row):
             if isCellAlive(item):
@@ -85,12 +75,28 @@ while not isStableWorld:
                     pass
                     # no cell there, and no cell will be created
 
-    print('Iteration', iteration)
-    printea(newWorld)
 
-    isStableWorld = stableWorld(world, size, newWorld)
+worldAndSize = getIniSpace.getIniSpace()
+size  = worldAndSize[1]
+world = worldAndSize[0]
+
+
+newWorld = copy.deepcopy(world)
+aNewWorld(world, newWorld, size)
+iteration = 1
+print('Creation:')
+printWorld(world)
+print('First new world, before loop iterations:')
+printWorld(newWorld)
+input()
+
+while not stableWorld(world, size, newWorld):
+    world = copy.deepcopy(newWorld)
+    aNewWorld(world, newWorld, size)
+    iteration += 1
+    print('Iteration', iteration)
+    printWorld(newWorld)
     input()
 
-    iteration += 1
-    world = copy.deepcopy(newWorld)
-print('\n\nStable world beginning iteration:', iteration, '. Iteration', iteration - 1, 'created a stable world.')
+
+print('\n\nIteration:', iteration, 'produced the same world.')
