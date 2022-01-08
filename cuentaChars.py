@@ -1,4 +1,4 @@
-import printeaSeq
+import pprint
 
 texto = 'Victor es calvo y gordito.'
 
@@ -8,4 +8,7 @@ for letra in texto:
     cuenta[letra] += 1 
 
 
-print(texto, cuenta, sep='\n')
+print('\nCounting chars on:...', texto)
+pprint.pprint(cuenta)
+
+print('\n', texto, cuenta, '\n', sep='\n')
