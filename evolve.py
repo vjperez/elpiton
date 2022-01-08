@@ -1,5 +1,11 @@
 import getIniSpace, copy
 
+def printea(s):
+    for row in s:
+        for item in row:
+            print(item,  end='')
+        print('', end='\n')
+    print('\n\n\n')
 
 def emptyWorld(world):
     for row in world:
@@ -16,8 +22,6 @@ def fullWorld(world):
 
 
 def stableWorld(world, size, newWorld):
-    # print('\nworld    ', world)
-    # print('new world', newWorld, '\n\n\n\n')
     for x in range(size):
         for y in range(size):
             if world[x][y] != newWorld[x][y]:    return False
@@ -45,7 +49,6 @@ def howManyNeibhors(world, size, r, c):
     if isCellAlive( world[(r+1)%size][c] ): n += 1
     if isCellAlive( world[r][(c-1+size)%size] ): n += 1
     if isCellAlive( world[(r-1+size)%size][c] ): n += 1
-    #print('r: ', r, 'c: ', c, 'n: ', n)
     return n
 
 
@@ -53,7 +56,8 @@ def howManyNeibhors(world, size, r, c):
 worldAndSize = getIniSpace.getIniSpace()
 size  = worldAndSize[1]
 world = worldAndSize[0]
-print('\n\nCreation:\nworld    ', world, '\n\n')
+print('Creation')
+printea(world)
 newWorld = copy.deepcopy(world)
 
 
@@ -74,8 +78,9 @@ while not isStableWorld:
                 else:
                     pass
                     # no cell there, and no cell will be created
-    print('After iteration ', iteration, ':\nworld    ', world)
-    print('new world', newWorld, '\n')
+
+    print('Iteration', iteration)
+    printea(newWorld)
 
     isStableWorld = stableWorld(world, size, newWorld)
     input()
