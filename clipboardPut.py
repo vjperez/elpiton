@@ -1,10 +1,14 @@
 #!/usr/bin/python
 
 # Putting a particular message on the clipbooard
+# Puts on the clipboard one of values on the mensajes dict
+# The keys are used to select which value is stored on the clipboard
 
 import pyperclip, sys
 
-mensajes = {'hola':'Saludos, todo bien?', 'ask':'Tiene un minuto disponible?.  Tengo una pregunta.'}
+mensajes = {'hola':'Saludos, todo bien?', 
+             'ask':'Tiene un minuto disponible?.  Tengo una pregunta.',
+             'repo':'https://github.com/asweigart/zombiedice.git' }
 
 # print (sys.argv)     just wanted to see it !
 if len(sys.argv) < 2:

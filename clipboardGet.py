@@ -1,3 +1,8 @@
+#!/usr/bin/python
+
+# Gets the text stored on the clipboard and stores it on the 
+# variable below
+
 
 import pyperclip
 
