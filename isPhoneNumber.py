@@ -13,8 +13,10 @@ def hasPhonenumber(str):
         
     matchObject = phoneNumberReObj.search(str)
     #print('\n\n', matchObject)
-    if matchObject == None: return False
-    else: return matchObject.group()
+    if matchObject == None: 
+        return False
+    else: 
+        return matchObject.group()
 
 
 
