@@ -1,23 +1,20 @@
 import re 
 
 def hasEmilio(str):
-    phoneNumberReObj = re.compile(r'''(
+    # re implemented below with ''' and re.VERBOSE
+    # r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
+    # re is not perfect but should get some emails
+    emilioReObj = re.compile( r'''(
+        [a-zA-Z0-9_.+-]+
+        @
+        [a-zA-Z0-9-]+
+        \.
+        [a-zA-Z0-9-.]+
+    )''' ,re.VERBOSE)
 
-
- 	
-r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
-
-
-    (   (\d{3})   |   (\(\d{3}\))   )   #area code with or without ()
-    
-    (- | \s | \.)                       #separator  es:  - .  o espacio
-    (\d{3})
-    (- | \s | \.)                       #separator  es:  - .  o espacio
-    (\d{4})
-    )''', re.VERBOSE)
         
-    matchObject = phoneNumberReObj.search(str)
-    #print('\n\n', matchObject)
+    matchObject = emilioReObj.search(str)
+    print('\n\nmatch object= ', matchObject)
     if matchObject == None: 
         return False
     else: 
@@ -28,7 +25,36 @@ r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
 if __name__ == '__main__':
     
     text = 'aqui no'
-    ph = hasPhonenumber(text)
-    print('text=', text, 'ph=', ph)
-    if ph:  print(ph)
-    else:   print('no phone number found')   
+    emilio = hasEmilio(text)
+    print('text=', text, '\nemilio=', emilio)
+    if emilio:  
+        print(emilio)
+    else:   
+        print('no emilio found')  
+
+
+    text = 'wer vd@rf.com lkjh'
+    emilio = hasEmilio(text)
+    print('text=', text, '\nemilio=', emilio)
+    if emilio:  
+        print(emilio)
+    else:   
+        print('no emilio found')   
+
+
+    text = 'wer cosa-co3sa@cosa-cosa.com-com lkjh'
+    emilio = hasEmilio(text)
+    print('text=', text, '\nemilio=', emilio)
+    if emilio:  
+        print(emilio)
+    else:   
+        print('no emilio found') 
+
+
+    text = 'wer cosa-co3sa@co.sa-cosa.com-co.m lkjh'
+    emilio = hasEmilio(text)
+    print('text=', text, '\nemilio=', emilio)
+    if emilio:  
+        print(emilio)
+    else:   
+        print('no emilio found') 
