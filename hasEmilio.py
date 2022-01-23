@@ -58,3 +58,12 @@ if __name__ == '__main__':
         print(emilio)
     else:   
         print('no emilio found') 
+
+
+    text = 'wer cosa-co3sa@cs.edu lkjh'
+    emilio = hasEmilio(text)
+    print('text=', text, '\nemilio=', emilio)
+    if emilio:  
+        print(emilio)
+    else:   
+        print('no emilio found') 
